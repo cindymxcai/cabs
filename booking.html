@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en" >
+
+<head>
+	<title>CabsOnline</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+	<script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="simpleajax.js"> </script>
+
+</head>
+<body>
+	<div class="top-menu">
+		<nav class="nav-menu">
+			<a class="menu-a" href="index.html">Home</a>
+			<a class="menu-a" href="booking.html">Booking</a>
+			<a class="menu-a" href="admin.html">Admin</a>
+		</nav>
+	</div>
+	<div>
+
+			<h1>Booking</h1>
+
+	</div>
+	<div class="body">
+		<div class="form">
+
+<form action ="dataprocess.php" method = "post" >
+
+				<table class="formtable">
+
+		    <label class="label">Name: <div class="ialign"><input type="text" name="name" ></div></label>
+				<label class="label">Contact Number: <div class="ialign"><input type="text" name="phone"></div></label>
+				<label class="label">Unit No. optional: <div class="ialign"><input type="text" name="unit"></div></label>
+				<label class="label">Street No:<div class="ialign"><input type="text" name="streetnum"></div></label>
+				<label class="label">Street Name: <div class="ialign"><input type="text" name="street"></div></label>
+				<label class="label">Suburb: <div class="ialign"><input type="text" name="suburb"></div></label>
+
+
+		    <label class="label">Pick up date: <div class="ialign"><input type="date" id="datefield" name="date"></div></label>
+				<label class="label"> Pick up Time: <div class="ialign"><input type = "Time" name ="time"></div></label>
+				<label class="label"> Drop off Destination: <div class="ialign"><input type = "text" name ="dropoff"></label>
+					<button type="submit" class = "button" value = "Book a cab!" >Book a cab</button>
+
+
+			
+		</table>
+
+
+
+			</form>
+
+		</div>
+	</div>
+	<div class="footer">
+		<footer>
+
+		</footer>
+	</div>
+
+</body>
+<script type="text/javascript">
+var today = new Date();
+var dd = today.getDate();
+var mm = today.getMonth()+1; //January is 0!
+var yyyy = today.getFullYear();
+ if(dd<10){
+        dd='0'+dd
+    }
+    if(mm<10){
+        mm='0'+mm
+    }
+
+today = yyyy+'-'+mm+'-'+dd;
+document.getElementById("datefield").setAttribute("min", today);
+
+</script>
+
+</html>
