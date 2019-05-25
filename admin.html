@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +18,36 @@
 	</div>
 	<div class="body">
 	<h1>Admin </h1>
-	<table class="formtable">
 
-	<button type="button" name="button">Show bookings</button>
+
+
 <!--issue query request to server -->
 
-	<label class="label">Booking Number <div class="ialign"><input type="text" name="number"></div></label>
-<button type="button" name="button">Assign Taxi</button>
+
 <!--issue assign request to server with inputted booking number -->
+
+
+<form action ="adminprocess.php" method = "post" >
+
+				<table class="formtable">
+						<h3> View all bookings</h3>
+						<button type="button" name="button">Show bookings</button>
+						<br><br>
+						<hr>
+						<br>
+						<h3> Assign a taxi to a customer </h3>
+						<label class="label">Booking Number <div class="ialign"><input type="text" name="number"></div></label>
+					<button type="button" name="button">Assign Taxi</button>
+
+
+
+		</table>
+
+
+
+			</form>
+
+
 
 	</div>
 	<div class="footer">
