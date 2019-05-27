@@ -36,10 +36,11 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
 	$dropoff = $_POST['dropoff'];
 	$ref = $_POST['ref'];
 
+
 	 $query1 = "SHOW TABLES LIKE 'Bookings'";
     $result = @mysqli_query($conn, $query1);
     if (mysqli_num_rows($result)>0){
-        echo"Success!";
+        echo"<p class = \"success\">Success!</p>";
     }
 
 
@@ -58,12 +59,12 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
 			 mysqli_free_result($result);
 	 }
 
-	 
+
 	 // Set up the SQL command to add the data into the table
     $query2 = "insert into Bookings"
             ."(name, phone, unit, streetnum, street, suburb, date, time, dropoff)"
             . "values"
-        ."('$name','$phone','$unit', '$streetnum','$street','$suburb','$date','$time','$dropoff')";
+        		."('$name','$phone','$unit', '$streetnum','$street','$suburb','$date','$time','$dropoff')";
 
         // executes the query
         $result = mysqli_query($conn, $query2);
@@ -72,7 +73,9 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
             echo "<p>Something is wrong with ",	$query2, "</p>";
         } else {
             // display an operation successful message
-            echo "<p>Your booking has been made!</p>";
+            echo "<p class = \"success\">Thanks ", $name,"! Your booking has been made! <br>
+						Please wait outside ", $streetnum, $unit," ", $street ," ",$suburb, " at ",$time," ", $date,
+						"	</p>";
         } // if successful query operation
 
      // Frees up the memory, after using the result pointer
@@ -82,6 +85,18 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
      mysqli_close($conn);
 
  ?>
+
+<style>
+
+.success
+{
+	color: orange;
+	margin: auto;
+	text-align: center;
+	padding-top: 20px;
+
+}
+</style>
 
 
 

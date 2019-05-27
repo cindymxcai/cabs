@@ -5,7 +5,7 @@
 	<title>CabsOnline</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
 	<script type="text/javascript" src="xhr.js"></script>
-    <script type="text/javascript" src="simpleajax.js"> </script>
+    <script type="text/javascript" src="bookprocess.js"> </script>
 
 </head>
 <body>
@@ -24,25 +24,25 @@
 	<div class="body">
 		<div class="form">
 
-<form action ="dataprocess.php" method = "post" >
+<form action ="dataprocess.php" method = "post" id="form" name="f" >
 
 				<table class="formtable">
 
-		    <label class="label">Name: <div class="ialign"><input type="text" name="name" class="box"></div></label>
-				<label class="label">Contact Number: <div class="ialign"><input type="text" name="phone" class="box"></div></label>
-				<label class="label">Unit No. optional: <div class="ialign"><input type="text" name="unit" class = "box" ></div></label>
-				<label class="label">Street No:<div class="ialign"><input type="text" name="streetnum" class="box"></div></label>
-				<label class="label">Street Name: <div class="ialign"><input type="text" name="street" class="box"></div></label>
-				<label class="label">Suburb: <div class="ialign"><input type="text" name="suburb" class="box"></div></label>
+		    <label class="label">Name: <div class="ialign"><input type="text" name="name" class="box" required></div></label>
+				<label class="label">Contact Number: <div class="ialign"><input type="text" name="phone" class="box" required></div></label>
+				<label class="label">Unit No. optional: <div class="ialign"><input type="text" name="unit" class = "box"  ></div></label>
+				<label class="label">Street No:<div class="ialign"><input type="text" name="streetnum" class="box" required></div></label>
+				<label class="label">Street Name: <div class="ialign"><input type="text" name="street" class="box"required></div></label>
+				<label class="label">Suburb: <div class="ialign"><input type="text" name="suburb" class="box"required></div></label>
 
 
-		    <label class="label">Pick up date: <div class="ialign"><input type="date" id="datefield" name="date" ></div></label>
-				<label class="label"> Pick up Time: <div class="ialign"><input type = "Time" name ="time" ></div></label>
-				<label class="label"> Drop off Destination: <div class="ialign"><input type = "text" name ="dropoff" class="box"></label>
+		    <label class="label">Pick up date: <div class="ialign"><input type="date" id="datefield" name="date" required ></div></label>
+				<label class="label"> Pick up Time: <div class="ialign"><input type = "Time" name ="time" id="time" required></div></label>
+				<label class="label"> Drop off Destination: <div class="ialign"><input type = "text" name ="dropoff" class="box" required></label>
 					<br>
 <br>
 
-					<button type="submit" class = "button" value = "Book a cab!" >Book a cab</button>
+					<button type="submit" id = "button" class = "button" value = "Book a cab!" >Book a cab</button>
 
 
 
@@ -76,6 +76,22 @@ var yyyy = today.getFullYear();
 today = yyyy+'-'+mm+'-'+dd;
 document.getElementById("datefield").setAttribute("min", today);
 
+
+var today = new Date();
+var now = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+/*
+var time = document.getElementById('time') ;
+
+document.getElementById('button').onclick = function() {
+
+if(time< now)
+{
+			 alert('Please enter the time greater than current time');
+	 }
+
+}
+*/
 </script>
 
 </html>

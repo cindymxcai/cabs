@@ -1,5 +1,5 @@
-var xhr = createRequest();
-function getData(dataSource, divID, aName, aPwd)
+var xhr = getData();
+function getData(dataSource, divID, aName, aPhone, aUnit, aStreetnum, aStreet, aSuburb, aDate, aTime, aDropoff)
 {
 	 if(xhr)
 	 {
