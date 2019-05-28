@@ -88,3 +88,14 @@ button {
 button:hover {
 background-color:#fb9e25;
 }
+
+
+
+.success
+{
+	color: orange;
+	margin: auto;
+	text-align: center;
+	padding-top: 20px;
+
+}
