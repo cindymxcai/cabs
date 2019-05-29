@@ -46,6 +46,8 @@ if (h < 10) {
 	{
 		console.log('dropoff');
 		valid = false;
+		alert("Please enter a valid name! :(");
+
 	}
 
 /////////////////////////////////////////////////////////////
@@ -54,6 +56,8 @@ if (h < 10) {
 	{
 		console.log('dropoff i');
 		valid = false;
+		alert("Please enter a valid phone number! :(");
+
 	}
 	/*
 	else {
@@ -75,6 +79,8 @@ if (h < 10) {
 	{
 		console.log('dropoff in');
 		valid = false;
+		alert("Please enter a valid street number! :(");
+
 	}
 
 ////////////////////////////////////////////////////////////////////////
@@ -82,6 +88,8 @@ if (h < 10) {
   {
 		console.log('dropoff inv');
 		valid = false;
+		alert("Please enter a valid street name! :(");
+
 	}
 
 ///////////////////////////////////////////////////////////
@@ -89,6 +97,8 @@ if (h < 10) {
 	{
 		console.log('dropoff inva');
 		valid = false;
+		alert("Please enter a valid suburb! :(");
+
 	}
 
 	/////////////////////////////////////////////////////////
@@ -96,6 +106,8 @@ if (h < 10) {
 	{
 		console.log('dropoff inval');
 		valid = false;
+		alert("Our cabs can't time travel, sorry! :(");
+
 	}
 
 	////////////////////////////////////////////////////////////
@@ -103,12 +115,16 @@ if (h < 10) {
 	{
 		console.log('dropoff invali');
 		valid = false;
+		alert("Our cabs can't time travel, sorry! Please choose a time in the future :(");
+
 	}
 	/////////////////////////////////////////////////////////////////
 	if(dropoff == "")
 	{
 		console.log('dropoff invalid');
 		valid = false;
+		alert("Please enter a valid suburb! :(");
+
 	}
 
 
@@ -120,19 +136,18 @@ if (h < 10) {
 	else
 	{
 		// data is invlaid, dont process anything
-		alert("Bad input :(");
+		console.log("Bad input :(");
 
 	}
 
 
 function sendData()
 {
+  console.log("here?");
 	var xhr = createRequest();
 	var dataSource = 'dataprocess.php';
-	console.log("are we getting hit");
 	if(xhr)
 	{
-			console.log("inside xhr request");
 			var requestbody = "name=" +encodeURIComponent(name)
 			 + "&phone=" +encodeURIComponent(phone)
 			 + "&unit=" +encodeURIComponent(unit)
@@ -150,9 +165,12 @@ function sendData()
 				 {
 					 // the server gave us a response.
 					 var response = xhr.response;
+           var target = document.getElementById("target");
+           target.innerHTML = response;
 					 console.log(response);
+
 				 }
-			}
+			};
 			xhr.send(requestbody);
  	}
 }

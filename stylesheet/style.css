@@ -66,6 +66,29 @@ form{
 
 
 
+.button {
+	text-align: center;
+	display: block;
+	margin: auto;
+	background-color:#ffc477;
+	-moz-border-radius:42px;
+	-webkit-border-radius:42px;
+	border-radius:42px;
+	border:2px solid #eeb44f;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:19px;
+	font-weight:bold;
+	padding:16px 76px;
+	text-decoration:none;
+}
+
+.button:hover {
+background-color:#fb9e25;
+}
+
 button {
 	text-align: center;
 	display: block;
@@ -89,8 +112,6 @@ button:hover {
 background-color:#fb9e25;
 }
 
-
-
 .success
 {
 	color: orange;
@@ -99,3 +120,17 @@ background-color:#fb9e25;
 	padding-top: 20px;
 
 }
+.atable {
+    width: 100%;
+		border: collapse:
+
+
+}
+
+.atable,. atd, .ath {
+    border: 1px solid black;
+    padding: 5px;
+
+}
+
+.ath {text-align: left;}

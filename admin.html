@@ -4,8 +4,7 @@
 <head>
 	<title>CabsOnline</title>
 	<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
-	<script type="text/javascript" src="xhr.js"></script>
-    <script type="text/javascript" src="simpleajax.js"> </script>
+	<script type="text/javascript" src="adminprocess.js"> </script>
 
 </head>
 <body>
@@ -27,11 +26,14 @@
 <!--issue assign request to server with inputted booking number -->
 
 
-<form action ="adminprocess.php" method = "post" >
+<form action ="adminprocess.php" method = "GET" >
 
 				<table class="formtable">
 						<h3> View all bookings</h3>
-						<button type="button" name="button">Show bookings</button>
+						<input type="button" name="button" class="button" value ="View pick-up requests" onClick="getBookings()">
+						<div id = "target">
+
+						</div>
 						<br><br>
 						<hr>
 						<br>

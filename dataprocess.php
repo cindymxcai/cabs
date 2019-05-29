@@ -22,6 +22,9 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
 		$ref .= (string)rand(0,9);
 	}
 
+	date_default_timezone_set('Pacific/Auckland');
+$bdate = date('Y-m-d H:i:s');
+
 	 $name = $_POST['name'];
 	$phone = $_POST['phone'];
 	$unit = $_POST['unit'];
@@ -47,7 +50,8 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
 																					date DATE,
 																					time Time,
 																					dropoff VARCHAR(40),
-																					status VARCHAR(20) )";
+																					status VARCHAR(20),
+																				 	bdate DateTime)";
 
 			 $result = @mysqli_query($conn, $query1);
 
@@ -58,9 +62,9 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
 
 	 // Set up the SQL command to add the data into the table
     $query2 = "insert into Bookings"
-            ."(ref, name, phone, unit, streetnum, street, suburb, date, time, dropoff, status)"
+            ."(ref, name, phone, unit, streetnum, street, suburb, date, time, dropoff, status, bdate)"
             . "values"
-        		."('$ref','$name','$phone','$unit', '$streetnum','$street','$suburb','$date','$time','$dropoff','unassigned')";
+        		."('$ref','$name','$phone','$unit', '$streetnum','$street','$suburb','$date','$time','$dropoff','unassigned','$bdate')";
 
         // executes the query
         $result = mysqli_query($conn, $query2);
@@ -69,19 +73,45 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
             echo "<p>Something is wrong with ",	$query2, "</p>";
         } else {
             // display an operation successful message
-            echo "Thanks ", $name,"! Your booking has been made! <br>
-						Your reference number is: ",$ref," <br>
-					 	Please wait outside ", $streetnum, $unit," ", $street ," ",$suburb, " at " ,$date, " ",$time;
+    
+						?>
+						<head>
+							<title>CabsOnline</title>
+							<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+							<script type="text/javascript" src="bookprocess.js"> </script>
+						</head>
+						<body>
+							<div class="top-menu">
+								<nav class="nav-menu">
+									<a class="menu-a" href="index.html">Home</a>
+									<a class="menu-a" href="booking.html">Booking</a>
+									<a class="menu-a" href="admin.html">Admin</a>
+								</nav>
+							</div>
+							<div>
+									<h1>Booking</h1>
+							</div>
+							<div class = "success">
+						<?php
+
+							echo "Thanks ", $name,"! Your booking has been made! <br>
+							Your reference number is: ",$ref," <br>
+							Please wait outside ", $streetnum, $unit," ", $street ," ",$suburb, " at " ,$date, " ",$time;
+
+
+							 // Frees up the memory, after using the result pointer
+					 mysqli_free_result($result);
+
+					 // close the database connection
+					 mysqli_close($conn);
+					 ?>
+					</div>
+					 </html>
+
+<?php
+
         }
 				//if successful query operation
-
-
-
-				 // Frees up the memory, after using the result pointer
-     mysqli_free_result($result);
-
-     // close the database connection
-     mysqli_close($conn);
 
 
 
