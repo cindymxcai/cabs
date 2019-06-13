@@ -1,6 +1,7 @@
 
 
 <?php
+//Cindy Cai 16938610 processes the user booking area
 
 
 require_once ("../../../conf/settings.php");
@@ -16,7 +17,7 @@ $conn = @mysqli_connect($host, $user, $pswd, $dbnm)
 	 }
 		else {
 
-	// generate booking reference number
+	// generate booking reference number and the booking date 
 	$ref = "";
 	for ($i=0; $i<4; $i++) {
 		$ref .= (string)rand(0,9);
@@ -39,6 +40,7 @@ $bdate = date('Y-m-d H:i:s');
 
  // Frees up the memory, after using the result pointer
 			 mysqli_free_result($result);
+			 //creates table in database if not found
 
 			 $query1  = "CREATE TABLE if not exists Bookings (ref VARCHAR(6) NOT NULL UNIQUE,
 			 																		name VARCHAR(40) NOT NULL,
@@ -72,8 +74,9 @@ $bdate = date('Y-m-d H:i:s');
         if(!$result) {
             echo "<p>Something is wrong with ",	$query2, "</p>";
         } else {
+
             // display an operation successful message
-    
+
 						?>
 						<head>
 							<title>CabsOnline</title>
@@ -111,7 +114,7 @@ $bdate = date('Y-m-d H:i:s');
 <?php
 
         }
-				//if successful query operation
+
 
 
 

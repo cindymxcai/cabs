@@ -1,5 +1,6 @@
-//VALIDATE STRING LENGTH!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+//Cindy Cai 16938610 Booking page functions
 
+//gets data from form and validates
 function getData()
 {
 	// validate data
@@ -44,89 +45,170 @@ if (h < 10) {
 
 	if(name == "")
 	{
-		console.log('dropoff');
+
 		valid = false;
-		alert("Please enter a valid name! :(");
+		alert("Please enter a valid name! ");
 
 	}
+
+  else {
+  var expression=  /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+  var validExpression = expression.exec(name);
+  if(validExpression)
+  {
+      console.log("valid");
+      valid = true;
+  }
+  else
+  {
+    alert("Please enter a valid name! ");
+    valid = false;
+
+  }
+}
 
 /////////////////////////////////////////////////////////////
 
 	if(phone == "")
 	{
-		console.log('dropoff i');
+
 		valid = false;
-		alert("Please enter a valid phone number! :(");
+		alert("Please enter a valid phone number! ");
 
 	}
-	/*
+
 	else {
 		var expression = /[0-9]/;
 		var validExpression = expression.exec(phone);
 
 		if(validExpression)
 		{
-			// phone is valid
+        console.log("valid");
+        valid = true;
 		}
 		else
 		{
-			// phone is not valid
+      alert("Please enter a valid phone number! ");
+      valid = false;
+
 		}
 	}
-	*/
+
 //////////////////////////////////////////////////////////////////
 	if(streetnum == "" )
 	{
-		console.log('dropoff in');
-		valid = false;
-		alert("Please enter a valid street number! :(");
 
+		valid = false;
+		alert("Please enter a valid street number! ");
+
+
+	}
+
+  else {
+		var expression = /[0-9]/;
+		var validExpression = expression.exec(streetnum);
+
+		if(validExpression)
+		{
+        console.log("valid");
+        valid = true;
+		}
+		else
+		{
+      alert("Please enter a valid street number! ");
+      valid = false;
+
+		}
 	}
 
 ////////////////////////////////////////////////////////////////////////
 	if(street == "")
   {
-		console.log('dropoff inv');
+
 		valid = false;
-		alert("Please enter a valid street name! :(");
+		alert("Please enter a valid street name! ");
 
 	}
+  else {
+  var expression=  /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+  var validExpression = expression.exec(street);
+  if(validExpression)
+  {
+      console.log("valid");
+      valid = true;
+  }
+  else
+  {
+    alert("Please enter a valid street name! ");
+    valid = false;
+
+  }
+}
 
 ///////////////////////////////////////////////////////////
 	if(suburb == "")
 	{
-		console.log('dropoff inva');
+
 		valid = false;
-		alert("Please enter a valid suburb! :(");
+		alert("Please enter a valid suburb! ");
 
 	}
+  else {
+  var expression=  /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+  var validExpression = expression.exec(suburb);
+  if(validExpression)
+  {
+      console.log("valid");
+      valid = true;
+  }
+  else
+  {
+    alert("Please enter a valid suburb! ");
+    valid = false;
+
+  }
+}
 
 	/////////////////////////////////////////////////////////
 	if (date < today)
 	{
-		console.log('dropoff inval');
+
 		valid = false;
-		alert("Our cabs can't time travel, sorry! :(");
+		alert("Our cabs can't time travel, sorry! ");
 
 	}
 
 	////////////////////////////////////////////////////////////
 	if (date == today && time < now)
 	{
-		console.log('dropoff invali');
+
 		valid = false;
-		alert("Our cabs can't time travel, sorry! Please choose a time in the future :(");
+		alert("Our cabs can't time travel, sorry! Please choose a time in the future ");
 
 	}
 	/////////////////////////////////////////////////////////////////
 	if(dropoff == "")
 	{
-		console.log('dropoff invalid');
+
 		valid = false;
-		alert("Please enter a valid suburb! :(");
+		alert("Please enter a valid suburb! ");
 
 	}
+  else {
+  var expression=  /^[a-zA-Z]+(\s[a-zA-Z]+)?$/;
+  var validExpression = expression.exec(dropoff);
+  if(validExpression)
+  {
+      console.log("valid");
+      valid = true;
+  }
+  else
+  {
+    alert("Please enter a valid suburb! ");
+    valid = false;
 
+  }
+  }
 
 
 	if(valid)
@@ -136,14 +218,14 @@ if (h < 10) {
 	else
 	{
 		// data is invlaid, dont process anything
-		console.log("Bad input :(");
+		console.log("Bad input ");
 
 	}
-
+// starts xml request function and then takes echo from the dataprocess php file and sends to booking html file
 
 function sendData()
 {
-  console.log("here?");
+
 	var xhr = createRequest();
 	var dataSource = 'dataprocess.php';
 	if(xhr)
@@ -174,7 +256,7 @@ function sendData()
 			xhr.send(requestbody);
  	}
 }
-
+//xml request
 function createRequest() {
 	 var xhr = false;
 	 if (window.XMLHttpRequest) {

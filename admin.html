@@ -1,5 +1,7 @@
 
 <!DOCTYPE html>
+<!--Cindy Cai 16938610 html file for admin -->
+
 <html>
 <head>
 	<title>CabsOnline</title>
@@ -18,38 +20,32 @@
 	<div class="body">
 	<h1>Admin </h1>
 
-
-
-<!--issue query request to server -->
-
-
-<!--issue assign request to server with inputted booking number -->
-
-
-<form action ="adminprocess.php" method = "GET" >
+<!--form for booking reference input -->
+<form action ="adminprocess.php" method = "GET" name ="assign">
 
 				<table class="formtable">
 						<h3> View all bookings</h3>
 						<input type="button" name="button" class="button" value ="View pick-up requests" onClick="getBookings()">
+						<!-- target for table to print -->
+
 						<div id = "target">
 
 						</div>
+						<div id = "test">
+							<!--target for response message -->
+
+						</div>
+
 						<br><br>
 						<hr>
 						<br>
 						<h3> Assign a taxi to a customer </h3>
-						<label class="label">Booking Number <div class="ialign"><input type="text" name="number"></div></label>
-					<button type="button" name="button">Assign Taxi</button>
-
-
+						<label class="label">Booking Number <div class="ialign"><input type="text" name="number" name="input" id="input"></div></label>
+						<input type="button" name="button" class="button" value ="Assign cabs" onClick="deleteBookings()">
 
 		</table>
 
-
-
 			</form>
-
-
 
 	</div>
 	<div class="footer">

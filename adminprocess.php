@@ -1,23 +1,29 @@
 <?php
 
+//Cindy Cai 16938610 processes the admin display pick up requests
+
 require_once ("../../../conf/settings.php");
 
      $conn = @mysqli_connect($host, $user, $pswd, $dbnm);
 
-  	 //validation
+  	 //validation for time to find bookings in the next 2 hours and unassigned
 
-    //  date_default_timezone_set('Pacific/Auckland');
-      //$today = date('Y-m-d');
-      //$now = date('H:i:s');
-      $getBookings = "select * from Bookings";
+     date_default_timezone_set('Pacific/Auckland');
+      $today = date('Y-m-d');
+      $now = date('H:i:s');
+      $now2 = date('H:i:s ', strtotime($now)+7200);
+      $getBookings = "select ref, name, phone, suburb, dropoff, date, time from Bookings
+      WHERE status = 'unassigned'
+      AND date = '$today'
+      AND time BETWEEN '$now' and '$now2'
+      ";
 
       //validates and gives message if the table exists
       $result = @mysqli_query($conn, $getBookings);
 
-          echo "<br><br>";
           echo "<table border = 1 class='atable'>";
           echo "<tr>";
-          echo "<th>reference Code</th>";
+          echo "<th>Reference Code</th>";
           echo "<th>Name</th>";
           echo "<th>Phone</th>";
           echo "<th>Suburb</th>";
@@ -25,7 +31,7 @@ require_once ("../../../conf/settings.php");
           echo "<th>Date</th>";
           echo "<th>Time</th>";
           echo "</tr>";
-
+//prints to table if bookings in the next two hours and unassigned are found
 
           while ($row = mysqli_fetch_assoc($result))
           {
@@ -40,7 +46,10 @@ require_once ("../../../conf/settings.php");
               echo "</tr>";
           }
 
-echo "</table>";
+
+          echo "</table>";
+
+//frees result
 
     mysqli_free_result($result);
 
